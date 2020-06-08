@@ -19,19 +19,19 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 
 int count = 0;
 GLuint skybox, skyboxVAO, skyboxVBO, hdrRBO, hdrVBO, hdrVAO, hdrFBO, hdrTex;
-vec3 cameraFront = vec3(0.0f, 0.0f, 1.0f), cameraPos(0.0f, 0.0f, 411.0f), cameraUp(0.0f, -1.0f, 0.0f);
+vec3 cameraFront = vec3(0.0f, 0.0f, 1.0f), cameraPos(0.0f, 0.0f, 46.0f), cameraUp(0.0f, -1.0f, 0.0f);
 float FOV = 30.0f, currentframe, lastframe, deltatime, lastX = 400.0f, lastY = 400.0f;
 bool firstMouse = true;
 float sensitivity = 0.05f;
 float yawX = 270.0f, pitchY = 0.0f;
 mat4 view(1.0f), projection(1.0f), modelTexture(1.0f);
 std::vector<std::string> PlanetFaces = {
-    "../Resources/Earth Textures/BluePlanet2.png",
-    "../Resources/Earth Textures/BluePlanet4.png",
-    "../Resources/Earth Textures/BluePlanet5.png",
-    "../Resources/Earth Textures/BluePlanet6.png",
-    "../Resources/Earth Textures/BluePlanet1.png",
-    "../Resources/Earth Textures/BluePlanet3.png"
+    "../../Code Files/Planet/BluePlanet2.png",
+    "../../Code Files/Planet/BluePlanet4.png",
+    "../../Code Files/Planet/BluePlanet5.png",
+    "../../Code Files/Planet/BluePlanet6.png",
+    "../../Code Files/Planet/BluePlanet1.png",
+    "../../Code Files/Planet/BluePlanet3.png"
 };
 //std::vector<std::string> PlanetFaces = {
 //    "../Resources/Earth Textures/EarthRight.jpg",
@@ -51,12 +51,12 @@ std::vector<std::string> PlanetFaces = {
 
 };*/
 std::vector<std::string> TerrainMapPath = {
-    "../Resources/Earth Textures/HeightMapRight.png",
-    "../Resources/Earth Textures/HeightMapBack.png",
-    "../Resources/Earth Textures/HeightMapUp.png",
-    "../Resources/Earth Textures/HeightMapDown.png",
-    "../Resources/Earth Textures/HeightMapFront.png",
-    "../Resources/Earth Textures/HeightMapLeft.png"
+    "../../Code Files/Planet/HeightMapRight.png",
+    "../../Code Files/Planet/HeightMapBack.png",
+    "../../Code Files/Planet/HeightMapUp.png",
+    "../../Code Files/Planet/HeightMapDown.png",
+    "../../Code Files/Planet/HeightMapFront.png",
+    "../../Code Files/Planet/HeightMapLeft.png"
 };
 //float skyboxVertices[] = {
 //    // Back face
@@ -182,16 +182,16 @@ int main()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2*sizeof(float)));
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
-    Sphere trialsphere(400.0f, 0.0f, 0.0f, 0.0f,0);
+    Sphere trialsphere(45.0f, 0.0f, 0.0f, 0.0f,0);
     trialsphere.spTextureCubeMap("heightSample", 4, TerrainMapPath);
     trialsphere.spTextureCubeMap("planetTexture",1,PlanetFaces);
     trialsphere.spTextureStatus(true);
 
     
-    Sphere atmosphere(410.0f,0.0f,0.0f,0.0f,1);
+    Sphere atmosphere(55.0f,0.0f,0.0f,0.0f,1);
     
 
-    Shader hdrShader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/hdrVS.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/hdrFS.frag" };
+    Shader hdrShader{ "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/hdrVS.vert", "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/hdrFS.frag" };
 
     while (!glfwWindowShouldClose(window))
     {
@@ -229,7 +229,7 @@ int main()
         glDisable(GL_CULL_FACE);
         atmosphere.spSetMat4("prvw", projection * view);
         atmosphere.spSetVec3("cameraPosGA", cameraPos);        
-        atmosphere.inner_radius = 400.0f;
+//        atmosphere.inner_radius = 400.0f;
         atmosphere.spDrawSphere();
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);

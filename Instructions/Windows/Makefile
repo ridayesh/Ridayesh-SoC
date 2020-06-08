@@ -12,10 +12,10 @@ ImageLoader.obj: {$(OTHER_LOC)}ImageLoader.cpp
 	cl /c /I "$(INC)" /nologo /EHsc "$(OTHER_LOC)\ImageLoader.cpp"
 Shader.obj: {$(BASIC_ROUTE)\Shader Class}Shader.cpp {$(BASIC_ROUTE)\Shader Class}Shader.h
 	cl /c /I "$(INC)" /nologo /EHsc "$(BASIC_ROUTE)\Shader Class\Shader.cpp"
-Sphere.obj: {$(BASIC_ROUTE)\Sphere}Sphere.cpp {$(BASIC_ROUTE)\Sphere}Sphere.h
-	cl /c /I "$(INC)" /I "$(BASIC_ROUTE)\Shader Class" /nologo /EHsc "$(BASIC_ROUTE)\Sphere\Sphere.cpp"
+Sphere.obj: {$(BASIC_ROUTE)\Main Code}Sphere.cpp {$(BASIC_ROUTE)\Main Code}Sphere.h
+	cl /c /I "$(INC)" /I "$(BASIC_ROUTE)\Shader Class" /nologo /EHsc "$(BASIC_ROUTE)\Main Code\Sphere.cpp"
 Planet.obj: {$(BASIC_ROUTE)\Main Code}Planet.cpp
-	cl /c /I "$(INC)" /I "$(BASIC_ROUTE)\Sphere" /I "$(BASIC_ROUTE)\Shader Class" /nologo /EHsc "$(BASIC_ROUTE)\Main Code\Planet.cpp"
+	cl /c /I "$(INC)" /I "$(BASIC_ROUTE)\Shader Class" /nologo /EHsc "$(BASIC_ROUTE)\Main Code\Planet.cpp"
 clean:
 	del *.obj
 	del Planet.exe

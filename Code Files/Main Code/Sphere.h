@@ -19,12 +19,13 @@ using namespace glm;
 class Sphere
 {
 	//Shader icos_shader{ "C:/Users/Ramesh/Desktop/Planet Atmosphere/Planet-Atmosphere-SoC/Code Files/GLSL Files/icosVs.glsl", "C:/Users/Ramesh/Desktop/Planet Atmosphere/Planet-Atmosphere-SoC/Code Files/GLSL Files/icos_sphereGS.glsl","C:/Users/Ramesh/Desktop/Planet Atmosphere/Planet-Atmosphere-SoC/Code Files/GLSL Files/icosFs.glsl" };
-	Shader icos_shader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosVs.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTCS.tesc", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTES.tese", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereGS.geom", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosFs.frag" };
-	//Shader icos_shader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosVs.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTCS.tesc", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTES.tese", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosFs.frag" };
+	//Shader icos_shader{ "../../Code Files/Planet/icosVs.txt", "../../Code Files/Planet/icos_sphereTCS.tesc", "../../Code Files/Planet/icos_sphereTES.tese", "../../Code Files/Planet/icos_sphereGS.geom", "../../Code Files/Planet/icosFs.frag" };
+	//Shader icos_shader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosVs.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTCS.tesc", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTES.tese", "", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosFs.frag" };
 	//Shader icos_shader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosVs.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTCS.tesc", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTES.tese", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/","../Resources/Sphere Shaders/Icosahedral Sphere Shaders/icosFs.frag" };	
-	//Shader atmosShader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/atmosVs.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/atmosGS.geom", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/atmosFs.frag" };
+	Shader atmosShader{"../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/atmosVS.vert", "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/atmosGS.geom", "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/atmosFS.frag"};
 	//Shader atmosShader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/atmosVSNvidia.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/atmosGSNvidia.geom", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/atmosFSNvidia.frag" };
-	Shader atmosShader{ "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/SpaceFromGround.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/SpaceFromGround.geom", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/SpaceFromGround.frag" };
+	//Shader atmosShader{ "../Sphere Shaders/Icosahedral Sphere Shaders/SpaceFromGround.vert", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/SpaceFromGround.geom", "../Resources/Sphere Shaders/Icosahedral Sphere Shaders/SpaceFromGround.frag" };
+	Shader icos_shader{"../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/icosVs.vert", "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTCS.tesc", "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereTES.tese", "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/icos_sphereGS.geom", "../../Code Files/Sphere Shaders/Icosahedral Sphere Shaders/icosFS.frag"};
 
 private:
 
@@ -133,8 +134,9 @@ public:
 		else if (type == 1)
 		{
 			atmosShader.use();
-			atmosShader.setFloat("outer_radius", outer_radius);
-			atmosShader.setFloat("inner_radius", inner_radius);
+			atmosShader.setFloat("radius",outer_radius);
+			//atmosShader.setFloat("outer_radius", outer_radius);
+			//atmosShader.setFloat("inner_radius", inner_radius);
 			atmosShader.setVec3("center", vec3(x, y, z));
 		}
 
