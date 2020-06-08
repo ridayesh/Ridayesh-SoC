@@ -3,3 +3,5 @@ Use WASD to move around, mouse to look here and there.
 Use C and V to move up and down.
 
 Please note that there are bugs...as the atmosphere is not yet complete.
+
+The Linux makefile is under work...You can use the windows instructions.
