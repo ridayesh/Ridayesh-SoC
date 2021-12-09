@@ -1,7 +1,6 @@
-This is the SoC Opengl Planet Rendering Project.
-Use WASD to move around, mouse to look here and there.
-Use C and V to move up and down.
+Hey there! This is my project Repo for Rendering a planet with atmospheric light scaterring using various shaders in OpenGL. I implemented it in my 1st year
+for fun and to be productive. Use WASD to move around, mouse to look here and there. Use C and V to move up and down. Enjoy! :)
 
-Please note that there are bugs...as the atmosphere is not yet complete.
+There are instructions on how to run this on Windows Microsoft Visual Studio Code.
 
-The Linux makefile is under work...You can use the windows instructions.
+Thanks!
